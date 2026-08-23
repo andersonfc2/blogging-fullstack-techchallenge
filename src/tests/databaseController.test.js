@@ -1,50 +1,48 @@
-//Testa o controller da database e sua conexão
-//Atividade ID 28
+const pool = require('../config/database');
+const { checkDatabaseConnection } = require('../controllers/databaseController');
 
-describe("Tests the database connection", () => {
-    it("should return an error from an empty request", async () => {
-        req = {};
-        res = {
-        status: function(responseStatus) {
-            expect(responseStatus).toBe(500);
-            return this; 
-        },
-        json: function(responseError) {
-            expect(responseError).toStrictEqual({
-                status: 'error',
-                message: 'Erro ao conectar no banco de dados',
-            })
-        }};
+jest.mock('../config/database', () => ({
+    query: jest.fn(),
+}));
+
+function mockResponse() {
+    return {
+        status: jest.fn().mockReturnThis(),
+        json: jest.fn(),
+    };
+}
+
+describe('DatabaseController', () => {
+    beforeEach(() => {
+        jest.clearAllMocks();
     });
 
-    it("should return an error from a bogus request", async () => {
-        req = {query: 3495384534};
-        res = {
-        status: function(responseStatus) {
-            expect(responseStatus).toBe(500);
-            return this; 
-        },
-        json: function(responseError) {
-            expect(responseError).toStrictEqual({
-                status: 'error',
-                message: 'Erro ao conectar no banco de dados',
-            })
-        }};
+    it('returns ok when the database responds', async () => {
+        const now = new Date('2026-08-23T12:00:00.000Z');
+        pool.query.mockResolvedValue({ rows: [{ now }] });
+        const res = mockResponse();
+
+        await checkDatabaseConnection({}, res);
+
+        expect(pool.query).toHaveBeenCalledWith('SELECT NOW()');
+        expect(res.status).toHaveBeenCalledWith(200);
+        expect(res.json).toHaveBeenCalledWith({
+            status: 'ok',
+            message: 'Banco de dados conectado com sucesso',
+            databaseTime: now,
+        });
     });
 
-    it("should verify the connection with the database and return all rows", async () => {
-        req = {query: 'a'};
-        res = {
-        status: function(responseStatus) {
-            expect(responseStatus).toBe(200);
-            return this; 
-        },
-        json: function(responseDatabase) {
-            expect(responseDatabase).toStrictEqual({
-                status: 'ok',
-                message: 'Banco de dados conectado com sucesso',
-                databaseTime: result.rows[0].now,
-            })
-        }};
+    it('returns error when the database query fails', async () => {
+        pool.query.mockRejectedValue(new Error('connection failed'));
+        const res = mockResponse();
+
+        await checkDatabaseConnection({}, res);
+
+        expect(res.status).toHaveBeenCalledWith(500);
+        expect(res.json).toHaveBeenCalledWith({
+            status: 'error',
+            message: 'Erro ao conectar no banco de dados',
+        });
     });
 });

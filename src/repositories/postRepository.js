@@ -5,7 +5,6 @@ class PostRepository {
 
     //METODO PARA SALVAR UM POST NO POSTGRESQL
     async create({ title, content, author }) {
-        console.log("arg:",{ title,content,author}); //debug
         const queryText = `
             INSERT INTO posts(title,content,author)
             VALUES($1,$2,$3)

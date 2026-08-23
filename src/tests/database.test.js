@@ -1,15 +1,31 @@
-//Atividade ID 28
-//Testes para 20% de cobertura
+const mockQuery = jest.fn();
 
-const pool = require('../config/database');
+jest.mock('pg', () => ({
+    Pool: jest.fn(() => ({
+        query: mockQuery,
+    })),
+}));
 
+describe('database configuration', () => {
+    beforeEach(() => {
+        jest.clearAllMocks();
+        jest.resetModules();
+    });
 
-describe("Tests the database connection", () => {
-    it("should return a fatal error message due to a lack of parameters", async () => {
-        expect(() => {
-            initDatabase();
-            expect(console.error).toHaveBeenCalled(1);
-            expect(console.error).toBe(' Erro fatal ao criar a tabela "posts":');
-        }).toThrow();
+    it('exports initDatabase without connecting during import', () => {
+        const pool = require('../config/database');
+
+        expect(pool.initDatabase).toEqual(expect.any(Function));
+        expect(mockQuery).not.toHaveBeenCalled();
+    });
+
+    it('creates the posts table when initDatabase is called', async () => {
+        const pool = require('../config/database');
+        mockQuery.mockResolvedValue({ rows: [] });
+
+        await pool.initDatabase(1, 0);
+
+        expect(mockQuery).toHaveBeenCalledTimes(1);
+        expect(mockQuery.mock.calls[0][0]).toContain('CREATE TABLE IF NOT EXISTS posts');
     });
 });
