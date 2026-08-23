@@ -1,0 +1,83 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-06-02T00:00:00.000Z",
+  "__export_source": "codex",
+  "resources": [
+    {
+      "_id": "wrk_tech_challenge_blog",
+      "_type": "workspace",
+      "name": "FIAP Pos-Tech - Tech Challenge",
+      "description": "Collection para testar a API de blogging educacional."
+    },
+    {
+      "_id": "env_tech_challenge_base",
+      "_type": "environment",
+      "parentId": "wrk_tech_challenge_blog",
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://localhost:3000"
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "base_url"
+        ]
+      },
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1
+    },
+    {
+      "_id": "fld_health_and_root",
+      "_type": "request_group",
+      "parentId": "wrk_tech_challenge_blog",
+      "name": "Status da API",
+      "description": "Rotas basicas para verificar se a API esta funcionando.",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": 1
+    },
+    {
+      "_id": "req_root",
+      "_type": "request",
+      "parentId": "fld_health_and_root",
+      "name": "GET /",
+      "description": "Retorna a mensagem inicial da API.",
+      "url": "{{ _.base_url }}/",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": 1,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_health",
+      "_type": "request",
+      "parentId": "fld_health_and_root",
+      "name": "GET /health",
+      "description": "Verifica se a API esta funcionando corretamente.",
+      "url": "{{ _.base_url }}/health",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": 2,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    }
+  ]
+}

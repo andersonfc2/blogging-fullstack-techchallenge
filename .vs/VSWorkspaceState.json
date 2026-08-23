@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\config",
+    "\\src\\controllers",
+    "\\src\\repositories",
+    "\\src\\routes"
+  ],
+  "SelectedNode": "\\.env.example",
+  "PreviewInSolutionExplorer": false
+}

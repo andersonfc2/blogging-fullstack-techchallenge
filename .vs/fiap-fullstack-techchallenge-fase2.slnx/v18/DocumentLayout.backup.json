@@ -1,0 +1,234 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\src\\routes\\postRoutes.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\routes\\postRoutes.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\src\\repositories\\postRepository.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\repositories\\postRepository.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\src\\controllers\\postController.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\controllers\\postController.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\src\\config\\database.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\config\\database.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\src\\server.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\server.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\.env.example||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.env.example||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\package-lock.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:package-lock.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\Dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\src\\routes\\databaseRoutes.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\routes\\databaseRoutes.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\src\\controllers\\databaseController.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\controllers\\databaseController.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\src\\routes\\healthRoutes.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\routes\\healthRoutes.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\src\\controllers\\healthController.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\controllers\\healthController.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "server.js",
+              "DocumentMoniker": "D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\src\\server.js",
+              "RelativeDocumentMoniker": "src\\server.js",
+              "ToolTip": "D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\src\\server.js",
+              "RelativeToolTip": "src\\server.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-06-12T23:23:59.447Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "postRoutes.js",
+              "DocumentMoniker": "D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\src\\routes\\postRoutes.js",
+              "RelativeDocumentMoniker": "src\\routes\\postRoutes.js",
+              "ToolTip": "D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\src\\routes\\postRoutes.js",
+              "RelativeToolTip": "src\\routes\\postRoutes.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-06-23T17:15:13.105Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "postRepository.js",
+              "DocumentMoniker": "D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\src\\repositories\\postRepository.js",
+              "RelativeDocumentMoniker": "src\\repositories\\postRepository.js",
+              "ToolTip": "D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\src\\repositories\\postRepository.js",
+              "RelativeToolTip": "src\\repositories\\postRepository.js",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwAUAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-06-23T17:04:43.51Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "postController.js",
+              "DocumentMoniker": "D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\src\\controllers\\postController.js",
+              "RelativeDocumentMoniker": "src\\controllers\\postController.js",
+              "ToolTip": "D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\src\\controllers\\postController.js",
+              "RelativeToolTip": "src\\controllers\\postController.js",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAwFQAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-06-23T17:01:30.389Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": ".env.example",
+              "DocumentMoniker": "D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\.env.example",
+              "RelativeDocumentMoniker": ".env.example",
+              "ToolTip": "D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\.env.example",
+              "RelativeToolTip": ".env.example",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-06-23T16:53:51.521Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "database.js",
+              "DocumentMoniker": "D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\src\\config\\database.js",
+              "RelativeDocumentMoniker": "src\\config\\database.js",
+              "ToolTip": "D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\src\\config\\database.js",
+              "RelativeToolTip": "src\\config\\database.js",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAADIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-06-23T16:45:24.853Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "package-lock.json",
+              "DocumentMoniker": "D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\package-lock.json",
+              "RelativeDocumentMoniker": "package-lock.json",
+              "ToolTip": "D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\package-lock.json",
+              "RelativeToolTip": "package-lock.json",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-06-23T16:35:34.441Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "package.json",
+              "DocumentMoniker": "D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\package.json",
+              "RelativeDocumentMoniker": "package.json",
+              "ToolTip": "D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\package.json",
+              "RelativeToolTip": "package.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-06-23T16:35:30.236Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\Dockerfile",
+              "RelativeDocumentMoniker": "Dockerfile",
+              "ToolTip": "D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\Dockerfile",
+              "RelativeToolTip": "Dockerfile",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-06-23T16:29:17.398Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "databaseRoutes.js",
+              "DocumentMoniker": "D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\src\\routes\\databaseRoutes.js",
+              "RelativeDocumentMoniker": "src\\routes\\databaseRoutes.js",
+              "ToolTip": "D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\src\\routes\\databaseRoutes.js",
+              "RelativeToolTip": "src\\routes\\databaseRoutes.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-06-23T16:23:30.734Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "databaseController.js",
+              "DocumentMoniker": "D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\src\\controllers\\databaseController.js",
+              "RelativeDocumentMoniker": "src\\controllers\\databaseController.js",
+              "ToolTip": "D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\src\\controllers\\databaseController.js",
+              "RelativeToolTip": "src\\controllers\\databaseController.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-06-23T16:23:29.117Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "healthRoutes.js",
+              "DocumentMoniker": "D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\src\\routes\\healthRoutes.js",
+              "RelativeDocumentMoniker": "src\\routes\\healthRoutes.js",
+              "ToolTip": "D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\src\\routes\\healthRoutes.js",
+              "RelativeToolTip": "src\\routes\\healthRoutes.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-06-12T23:30:11.539Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "healthController.js",
+              "DocumentMoniker": "D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\src\\controllers\\healthController.js",
+              "RelativeDocumentMoniker": "src\\controllers\\healthController.js",
+              "ToolTip": "D:\\1-POSTECH_FULLSTACK\\TechChallengeF2\\Projeto\\fiap-fullstack-techchallenge-fase2\\src\\controllers\\healthController.js",
+              "RelativeToolTip": "src\\controllers\\healthController.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-06-12T23:30:04.408Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
