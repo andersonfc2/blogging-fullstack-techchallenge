@@ -1,25 +1,19 @@
 require('dotenv').config();
 
-const express = require('express');
-const healthRoutes = require('./routes/healthRoutes');
-const databaseRoutes = require('./routes/databaseRoutes');
-const postRoutes = require('./routes/postRoutes'); //23-06 w
+const app = require('./app');
+const { initDatabase } = require('./config/database');
 
-const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(express.json());
+async function startServer() {
+  await initDatabase();
 
-app.get('/', (req, res) => {
-  res.json({
-    message: 'API do Tech Challenge - Blogging Educacional',
+  app.listen(port, () => {
+    console.log(`Servidor rodando na porta ${port}`);
   });
-});
+}
 
-app.use(healthRoutes);
-app.use(databaseRoutes);
-app.use(postRoutes); //23-06 w
-
-app.listen(port, () => {
-  console.log(`Servidor rodando na porta ${port}`);
+startServer().catch((error) => {
+  console.error('Erro ao iniciar o servidor:', error);
+  process.exit(1);
 });

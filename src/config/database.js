@@ -38,19 +38,5 @@ async function initDatabase(retries = 5, delay = 2000) {
     }
 }
 
-//METODO PARA BUSCAR
-async function searchPosts(term) {
-    const query = `
-        SELECT * FROM posts 
-        WHERE title ILIKE $1 OR content ILIKE $1
-        ORDER BY "createdAt" DESC;
-      `;
-    const searchTerm = `%${term}%`;
-    const result = await pool.query(query, [searchTerm]);
-    return result.rows;
-}
-
-//EXECUTA A INICIALIZACAO
-initDatabase();
-
 module.exports = pool;
+module.exports.initDatabase = initDatabase;

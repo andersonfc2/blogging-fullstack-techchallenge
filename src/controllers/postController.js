@@ -5,7 +5,6 @@ class PostController {
     //POST
     async create(req, res) {
         try {
-            console.log("reqbody:", req.body); //debug
             const { title, content, author } = req.body;
             if (!title || !content || !author) {
                 return res.status(400).json({ error: 'Campos obrigatórios ausentes: title, content e author.' });
@@ -62,6 +61,9 @@ class PostController {
     async update(req, res) {
         try {
             const { title, content, author } = req.body;
+            if (!title || !content || !author) {
+                return res.status(400).json({ error: 'Campos obrigatórios ausentes: title, content e author.' });
+            }
             const updated = await postRepository.update(req.params.id, { title, content, author });
             if (!updated) return res.status(404).json({ error: 'Post não encontrado.' });
             return res.status(200).json(updated);
