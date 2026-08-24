@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
-const API_URL = 'http://localhost:3000'
+import { getPostById } from '../services/api'
 
 function PostReadPage() {
   const { id } = useParams()
@@ -15,13 +15,7 @@ function PostReadPage() {
         setLoading(true)
         setError('')
 
-        const response = await fetch(`${API_URL}/posts/${id}`)
-
-        if (!response.ok) {
-          throw new Error('Post não encontrado.')
-        }
-
-        const data = await response.json()
+        const data = await getPostById(id)
         setPost(data)
       } catch (err) {
         setError(err.message)
@@ -49,6 +43,10 @@ function PostReadPage() {
           <h1>{post.title}</h1>
           <p className="post-author">Autor: {post.author}</p>
           <p className="post-content">{post.content}</p>
+
+          <Link className="primary-link" to={`/posts/${post.id}/edit`}>
+            Editar postagem
+          </Link>
         </article>
       )}
     </section>

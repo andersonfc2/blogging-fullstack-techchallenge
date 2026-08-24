@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-const API_URL = 'http://localhost:3000'
+import { getPosts, searchPostsByTerm } from '../services/api'
 
 function PostsListPage() {
   const [posts, setPosts] = useState([])
@@ -14,13 +14,7 @@ function PostsListPage() {
       setLoading(true)
       setError('')
 
-      const response = await fetch(`${API_URL}/posts`)
-
-      if (!response.ok) {
-        throw new Error('Não foi possível carregar os posts.')
-      }
-
-      const data = await response.json()
+      const data = await getPosts()
       setPosts(data)
     } catch (err) {
       setError(err.message)
@@ -41,15 +35,7 @@ function PostsListPage() {
       setLoading(true)
       setError('')
 
-      const response = await fetch(
-        `${API_URL}/posts/search?term=${encodeURIComponent(searchTerm)}`
-      )
-
-      if (!response.ok) {
-        throw new Error('Não foi possível buscar os posts.')
-      }
-
-      const data = await response.json()
+      const data = await searchPostsByTerm(searchTerm)
       setPosts(data)
     } catch (err) {
       setError(err.message)
@@ -70,6 +56,12 @@ function PostsListPage() {
         <p className="subtitle">
           Consulte postagens criadas por docentes e encontre conteúdos por palavra-chave.
         </p>
+        <Link className="primary-link" to="/posts/new">
+          Criar nova postagem
+        </Link>
+        <Link className="secondary-link" to="/admin">
+          Administração
+        </Link>
       </header>
 
       <section className="toolbar" aria-label="Busca de postagens">
