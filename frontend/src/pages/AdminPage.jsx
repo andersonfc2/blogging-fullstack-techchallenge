@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../contexts/AuthContext'
 
 import { deletePost as deletePostById, getPosts } from '../services/api'
 
 function AdminPage() {
+  const navigate = useNavigate()
+  const { teacher, logout } = useAuth()
   const [posts, setPosts] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -20,6 +23,11 @@ function AdminPage() {
     } finally {
       setLoading(false)
     }
+  }
+
+  function handleLogout() {
+    logout()
+    navigate('/')
   }
 
   async function deletePost(id) {
@@ -55,6 +63,13 @@ function AdminPage() {
         <p className="subtitle">
           Edite ou remova conteúdos publicados na plataforma educacional.
         </p>
+
+        <div className="admin-session">
+          <span>Logado como {teacher?.name}</span>
+          <button type="button" onClick={handleLogout}>
+            Sair
+          </button>
+        </div>
       </header>
 
       {loading && <p className="status-message">Carregando posts...</p>}

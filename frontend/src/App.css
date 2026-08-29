@@ -386,3 +386,27 @@ h1 {
     text-align: center;
   }
 }
+
+.admin-session {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 18px;
+  color: #4b5563;
+  font-weight: 700;
+}
+
+.admin-session button {
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 13px;
+  background: #111827;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.admin-session button:hover {
+  background: #374151;
+}

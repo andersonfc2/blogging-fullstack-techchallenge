@@ -5,20 +5,47 @@ import PostReadPage from './pages/PostReadPage'
 import PostCreatePage from './pages/PostCreatePage'
 import PostEditPage from './pages/PostEditPage'
 import AdminPage from './pages/AdminPage'
+import LoginPage from './pages/LoginPage'
+import { AuthProvider } from './contexts/AuthContext'
+import ProtectedRoute from './components/ProtectedRoute'
 
 function App() {
   return (
-    <BrowserRouter>
-      <main className="app">
-        <Routes>
-          <Route path="/" element={<PostsListPage />} />
-          <Route path="/posts/new" element={<PostCreatePage />} />
-          <Route path="/posts/:id" element={<PostReadPage />} />
-          <Route path="/posts/:id/edit" element={<PostEditPage />} />
-          <Route path="/admin" element={<AdminPage />} />
-        </Routes>
-      </main>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <main className="app">
+          <Routes>
+            <Route path="/" element={<PostsListPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route
+              path="/posts/new"
+              element={
+                <ProtectedRoute>
+                  <PostCreatePage />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="/posts/:id" element={<PostReadPage />} />
+            <Route
+              path="/posts/:id/edit"
+              element={
+                <ProtectedRoute>
+                  <PostEditPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin"
+              element={
+                <ProtectedRoute>
+                  <AdminPage />
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+        </main>
+      </BrowserRouter>
+    </AuthProvider>
   )
 }
 

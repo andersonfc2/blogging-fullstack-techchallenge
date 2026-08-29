@@ -56,12 +56,19 @@ function PostsListPage() {
         <p className="subtitle">
           Consulte postagens criadas por docentes e encontre conteúdos por palavra-chave.
         </p>
-        <Link className="primary-link" to="/posts/new">
-          Criar nova postagem
-        </Link>
-        <Link className="secondary-link" to="/admin">
-          Administração
-        </Link>
+        <div className="header-actions">
+          <Link className="primary-link" to="/posts/new">
+            Criar nova postagem
+          </Link>
+
+          <Link className="secondary-link" to="/admin">
+            Administração
+          </Link>
+
+          <Link className="secondary-link" to="/login">
+            Login professor
+          </Link>
+        </div>
       </header>
 
       <section className="toolbar" aria-label="Busca de postagens">

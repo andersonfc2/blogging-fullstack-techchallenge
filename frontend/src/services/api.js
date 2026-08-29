@@ -1,12 +1,21 @@
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
 
 async function request(path, options = {}) {
+  const savedAuth = localStorage.getItem('authData')
+  const authData = savedAuth ? JSON.parse(savedAuth) : null
+
+  const headers = {
+    'Content-Type': 'application/json',
+    ...options.headers,
+  }
+
+  if (authData?.token) {
+    headers.Authorization = `Bearer ${authData.token}`
+  }
+
   const response = await fetch(`${API_URL}${path}`, {
-    headers: {
-      'Content-Type': 'application/json',
-      ...options.headers,
-    },
     ...options,
+    headers,
   })
 
   if (!response.ok) {
@@ -45,5 +54,12 @@ export function updatePost(id, postData) {
 export function deletePost(id) {
   return request(`/posts/${id}`, {
     method: 'DELETE',
+  })
+}
+
+export function loginTeacher(credentials) {
+  return request('/auth/login', {
+    method: 'POST',
+    body: JSON.stringify(credentials),
   })
 }
