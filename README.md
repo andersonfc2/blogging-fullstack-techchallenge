@@ -233,6 +233,11 @@ fiap-techchallenge-api
 fiap-techchallenge-frontend
 ```
 
+Links no Docker Hub:
+
+- [fiap-techchallenge-api](https://hub.docker.com/r/andersonfc2/fiap-techchallenge-api)
+- [fiap-techchallenge-frontend](https://hub.docker.com/r/andersonfc2/fiap-techchallenge-frontend)
+
 ## Guia de uso
 
 1. Acesse `http://localhost:5173`.
