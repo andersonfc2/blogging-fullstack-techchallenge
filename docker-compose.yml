@@ -12,6 +12,21 @@ services:
       - DB_HOST=fiap-db
       - DB_PORT=${DB_PORT}
       - DB_NAME=${DB_NAME}
+      - JWT_SECRET=${JWT_SECRET}
+      - TEACHER_NAME=${TEACHER_NAME}
+      - TEACHER_EMAIL=${TEACHER_EMAIL}
+      - TEACHER_PASSWORD=${TEACHER_PASSWORD}
+
+  fiap-frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_URL: http://localhost:3000
+    container_name: fiap-frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - fiap-api
 
   fiap-db:
     image: postgres:16-alpine
