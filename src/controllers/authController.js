@@ -28,17 +28,22 @@ class AuthController {
           id: teacher.id,
           name: teacher.name,
           email: teacher.email,
+          role: 'teacher',
         },
         process.env.JWT_SECRET,
         { expiresIn: '2h' }
       )
 
+      const expiresAt = jwt.decode(token).exp * 1000
+
       return res.status(200).json({
         token,
+        expiresAt,
         teacher: {
           id: teacher.id,
           name: teacher.name,
           email: teacher.email,
+          role: 'teacher',
         },
       })
     } catch (error) {

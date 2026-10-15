@@ -1,6 +1,9 @@
+import { useAuth } from '../contexts/AuthContext';
 import { Button, StyleSheet, Text, View } from 'react-native';
 
 export default function HomeScreen({ navigation }) {
+  const { teacher, isAuthenticated, isTeacher, logout } = useAuth();
+
   return (
     <View style={styles.container}>
       <Text style={styles.label}>Tech Challenge — Fase 4</Text>
@@ -11,13 +14,30 @@ export default function HomeScreen({ navigation }) {
         Conteúdos de professores para apoiar o aprendizado dos estudantes.
       </Text>
 
-      <Button
-        title="Login professor"
-        onPress={() => navigation.navigate('Login')}
-      />
-    </View>
-  );
-}
+      {isAuthenticated ? (
+        <View>
+            <Text style={styles.description}>
+            Olá, {teacher.name}!
+            </Text>
+
+            {isTeacher && (
+              <Button
+                title="Administração"
+                onPress={() => navigation.navigate('Admin')}
+              />
+            )}
+
+            <Button title="Sair" onPress={logout} />
+        </View>
+        ) : (
+        <Button
+            title="Login professor"
+            onPress={() => navigation.navigate('Login')}
+        />
+            )}
+            </View>
+        );
+    }
 
 const styles = StyleSheet.create({
   container: {
