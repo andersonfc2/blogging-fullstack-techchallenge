@@ -5,6 +5,7 @@ import { useAuth } from '../contexts/AuthContext';
 import HomeScreen from '../screens/HomeScreen';
 import LoginScreen from '../screens/LoginScreen';
 import AdminScreen from '../screens/AdminScreen';
+import PostReadScreen from '../screens/PostReadScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +25,12 @@ export default function AppNavigator() {
           name="Home"
           component={HomeScreen}
           options={{ title: 'Blogging Educacional' }}
+        />
+
+        <Stack.Screen
+          name="PostRead"
+          component={PostReadScreen}
+          options={{ title: 'Leitura da postagem' }}
         />
 
         {!isAuthenticated && (
