@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
 import {
   ActivityIndicator, Button, FlatList, Keyboard, Pressable,
   StyleSheet, Text, TextInput, View,
@@ -17,7 +18,7 @@ export default function HomeScreen({ navigation }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  useEffect(() => {
+  useFocusEffect(useCallback(() => {
     const controller = new AbortController();
 
     async function loadPosts() {
@@ -38,7 +39,7 @@ export default function HomeScreen({ navigation }) {
 
     loadPosts();
     return () => controller.abort();
-  }, [query]);
+  }, [query]));
 
   function search() {
     Keyboard.dismiss();

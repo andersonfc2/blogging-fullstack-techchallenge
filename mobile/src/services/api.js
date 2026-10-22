@@ -1,38 +1,17 @@
 const API_URL = process.env.EXPO_PUBLIC_API_URL;
 
 export async function loginTeacher({ email, password }) {
-  if (!API_URL) {
-    throw new Error('Configure EXPO_PUBLIC_API_URL no arquivo mobile/.env.');
-  }
-
-  let response;
-
-  try {
-    response = await fetch(`${API_URL}/auth/login`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password }),
-    });
-  } catch {
-    throw new Error('Não foi possível conectar à API. Confira sua conexão.');
-  }
-
-  const data = await response.json();
-
-  if (!response.ok) {
-    throw new Error(data.error || 'Não foi possível realizar o login.');
-  }
-
-  return data;
+  return request('/auth/login', {
+    method: 'POST',
+    body: { email, password },
+  });
 }
 
 /**
  * @param {string} path
- * @param {{ signal?: AbortSignal }} options
+ * @param {{ signal?: AbortSignal, method?: string, token?: string, body?: object }} options
  */
-async function get(path, { signal } = {}) {
+async function request(path, { signal, method = 'GET', token, body } = {}) {
   if (!API_URL) {
     throw new Error('Configure EXPO_PUBLIC_API_URL no arquivo mobile/.env.');
   }
@@ -49,23 +28,40 @@ async function get(path, { signal } = {}) {
   }, 15000);
 
   try {
-    let response;
-    try {
-      response = await fetch(`${API_URL.replace(/\/$/, '')}${path}`, {
-        signal: controller.signal,
-      });
-    } catch (error) {
-      if (signal?.aborted) throw error;
-      throw new Error(timedOut
-        ? 'A API demorou para responder. Tente novamente.'
-        : 'Não foi possível conectar à API. Confira sua conexão.');
-    }
+    const response = await fetch(`${API_URL.replace(/\/$/, '')}${path}`, {
+      method,
+      signal: controller.signal,
+      headers: {
+        ...(body ? { 'Content-Type': 'application/json' } : {}),
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      },
+      ...(body ? { body: JSON.stringify(body) } : {}),
+    });
 
+    if (response.status === 204) return null;
     const data = await response.json();
     if (!response.ok) {
-      throw new Error(data.error || 'Não foi possível carregar os posts.');
+      throw Object.assign(
+        new Error(data.error || 'Não foi possível realizar a operação.'),
+        { status: response.status }
+      );
     }
     return data;
+  } catch (error) {
+    if (signal?.aborted) throw error;
+    if (timedOut || error instanceof TypeError) {
+      const message = timedOut
+        ? 'A API demorou para responder.'
+        : 'Não foi possível conectar à API.';
+      const guidance = method === 'GET' || path === '/auth/login'
+        ? ' Confira sua conexão e tente novamente.'
+        : ' Confira a lista antes de repetir a operação.';
+      throw new Error(message + guidance);
+    }
+    if (error instanceof SyntaxError) {
+      throw new Error('A API retornou uma resposta inválida. Tente novamente.');
+    }
+    throw error;
   } finally {
     clearTimeout(timeout);
     signal?.removeEventListener('abort', cancel);
@@ -73,15 +69,38 @@ async function get(path, { signal } = {}) {
 }
 
 export function getPosts(options) {
-  return get('/posts', options);
+  return request('/posts', options);
 }
 
 export function searchPostsByTerm(term, options) {
   const normalizedTerm = term.trim();
   if (!normalizedTerm) return getPosts(options);
-  return get(`/posts/search?term=${encodeURIComponent(normalizedTerm)}`, options);
+  return request(`/posts/search?term=${encodeURIComponent(normalizedTerm)}`, options);
 }
 
 export function getPostById(id, options) {
-  return get(`/posts/${encodeURIComponent(String(id))}`, options);
+  return request(`/posts/${encodeURIComponent(String(id))}`, options);
+}
+
+function requireToken(token) {
+  if (!token) {
+    throw Object.assign(new Error('Faça login novamente para continuar.'), { status: 401 });
+  }
+}
+
+export async function createPost(data, token) {
+  requireToken(token);
+  return request('/posts', { method: 'POST', token, body: data });
+}
+
+export async function updatePost(id, data, token) {
+  requireToken(token);
+  return request(`/posts/${encodeURIComponent(String(id))}`, {
+    method: 'PUT', token, body: data,
+  });
+}
+
+export async function deletePost(id, token) {
+  requireToken(token);
+  return request(`/posts/${encodeURIComponent(String(id))}`, { method: 'DELETE', token });
 }

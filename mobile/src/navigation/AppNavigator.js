@@ -6,6 +6,7 @@ import HomeScreen from '../screens/HomeScreen';
 import LoginScreen from '../screens/LoginScreen';
 import AdminScreen from '../screens/AdminScreen';
 import PostReadScreen from '../screens/PostReadScreen';
+import PostFormScreen from '../screens/PostFormScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -15,6 +16,7 @@ export default function AppNavigator() {
   return (
     <NavigationContainer>
       <Stack.Navigator
+        id="Root"
         screenOptions={{
           headerStyle: { backgroundColor: '#f8fafc' },
           headerTintColor: '#0f172a',
@@ -42,11 +44,23 @@ export default function AppNavigator() {
         )}
 
         {isTeacher && (
-          <Stack.Screen
-            name="Admin"
-            component={AdminScreen}
-            options={{ title: 'Administração' }}
-          />
+          <Stack.Group>
+            <Stack.Screen
+              name="Admin"
+              component={AdminScreen}
+              options={{ title: 'Administração' }}
+            />
+            <Stack.Screen
+              name="PostCreate"
+              component={PostFormScreen}
+              options={{ title: 'Criar postagem' }}
+            />
+            <Stack.Screen
+              name="PostEdit"
+              component={PostFormScreen}
+              options={{ title: 'Editar postagem' }}
+            />
+          </Stack.Group>
         )}
       </Stack.Navigator>
     </NavigationContainer>

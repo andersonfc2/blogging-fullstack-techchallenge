@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useIsFocused } from '@react-navigation/native';
 import { ActivityIndicator, Button, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -7,12 +8,14 @@ import { getPostById } from '../services/api';
 export default function PostReadScreen({ route }) {
   const { id } = route.params;
   const insets = useSafeAreaInsets();
+  const isFocused = useIsFocused();
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
+    if (!isFocused) return;
     const controller = new AbortController();
 
     async function loadPost() {
@@ -31,7 +34,7 @@ export default function PostReadScreen({ route }) {
 
     loadPost();
     return () => controller.abort();
-  }, [id, attempt]);
+  }, [id, attempt, isFocused]);
 
   return (
     <ScrollView contentContainerStyle={[
