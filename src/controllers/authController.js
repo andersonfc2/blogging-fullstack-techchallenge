@@ -5,13 +5,13 @@ const teacherRepository = require('../repositories/teacherRepository')
 class AuthController {
   async login(req, res) {
     try {
-      const { email, password } = req.body
+      const { email, password } = req.body || {}
 
-      if (!email || !password) {
+      if (typeof email !== 'string' || !email.trim() || typeof password !== 'string' || !password) {
         return res.status(400).json({ error: 'Email e senha são obrigatórios.' })
       }
 
-      const teacher = await teacherRepository.findByEmail(email)
+      const teacher = await teacherRepository.findByEmail(email.trim())
 
       if (!teacher) {
         return res.status(401).json({ error: 'Credenciais inválidas.' })
@@ -46,7 +46,7 @@ class AuthController {
           role: 'teacher',
         },
       })
-    } catch (error) {
+    } catch {
       return res.status(500).json({ error: 'Erro ao realizar login.' })
     }
   }
