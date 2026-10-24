@@ -1,5 +1,6 @@
 import {
   createContext,
+  useCallback,
   useContext,
   useEffect,
   useState,
@@ -28,9 +29,19 @@ export function AuthProvider({ children }) {
     });
   }
 
-  function logout() {
+  const logout = useCallback(() => {
     setAuthData(null);
-  }
+  }, []);
+
+  const updateTeacher = useCallback((teacher) => {
+    setAuthData((current) => {
+      if (!current || Number(current.teacher.id) !== Number(teacher.id)) return current;
+      return {
+        ...current,
+        teacher: { ...current.teacher, name: teacher.name, email: teacher.email },
+      };
+    });
+  }, []);
 
   useEffect(() => {
     if (!authData) return;
@@ -69,6 +80,7 @@ export function AuthProvider({ children }) {
         ),
         login,
         logout,
+        updateTeacher,
       }}
     >
       {children}

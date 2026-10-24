@@ -93,6 +93,11 @@ export default function AdminScreen({ navigation }) {
         <Text style={styles.title}>Gerenciar postagens</Text>
         <Text style={styles.description}>Professor: {teacher?.name}</Text>
         <Button
+          title="Gerenciar professores"
+          onPress={() => navigation.navigate('TeacherList')}
+          disabled={deletingId !== null}
+        />
+        <Button
           title="Criar postagem"
           onPress={() => navigation.navigate('PostCreate')}
           disabled={deletingId !== null}
