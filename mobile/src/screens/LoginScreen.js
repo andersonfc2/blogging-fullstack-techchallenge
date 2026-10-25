@@ -1,7 +1,6 @@
 import { useAuth } from '../contexts/AuthContext';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
-  Alert,
   Button,
   ScrollView,
   StyleSheet,
@@ -9,17 +8,25 @@ import {
   TextInput,
 } from 'react-native';
 
-import { loginTeacher } from '../services/api';
+import { loginStudent, loginTeacher } from '../services/api';
 
-export default function LoginScreen() {
+export default function LoginScreen({ route }) {
+  const studentLogin = route.params?.role === 'student';
   const { login } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const submitting = useRef(false);
+  const mounted = useRef(true);
+
+  useEffect(() => {
+    mounted.current = true;
+    return () => { mounted.current = false; };
+  }, []);
 
   async function handleLogin() {
-    if (loading) return;
+    if (submitting.current) return;
 
     setError('');
 
@@ -28,20 +35,24 @@ export default function LoginScreen() {
       return;
     }
 
+    submitting.current = true;
     try {
       setLoading(true);
 
-      const data = await loginTeacher({
+      const authenticate = studentLogin ? loginStudent : loginTeacher;
+      const data = await authenticate({
         email: email.trim(),
         password,
       });
 
+      if (!mounted.current) return;
       setPassword('');
       login(data);
     } catch (err) {
-      setError(err.message);
+      if (mounted.current) setError(err.message);
     } finally {
-      setLoading(false);
+      submitting.current = false;
+      if (mounted.current) setLoading(false);
     }
   }
 
@@ -50,7 +61,7 @@ export default function LoginScreen() {
       contentContainerStyle={styles.container}
       keyboardShouldPersistTaps="handled"
     >
-      <Text style={styles.title}>Login professor</Text>
+      <Text style={styles.title}>{studentLogin ? 'Login estudante' : 'Login professor'}</Text>
 
       <Text style={styles.label}>Email</Text>
       <TextInput

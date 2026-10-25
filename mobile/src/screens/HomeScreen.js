@@ -10,7 +10,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { searchPostsByTerm } from '../services/api';
 
 export default function HomeScreen({ navigation }) {
-  const { teacher, isAuthenticated, isTeacher, logout } = useAuth();
+  const { user, isAuthenticated, isTeacher, logout } = useAuth();
   const insets = useSafeAreaInsets();
   const [searchTerm, setSearchTerm] = useState('');
   const [query, setQuery] = useState({ term: '' });
@@ -57,7 +57,8 @@ export default function HomeScreen({ navigation }) {
       <View style={styles.session}>
         {isAuthenticated ? (
           <>
-            <Text style={styles.author}>Olá, {teacher?.name}!</Text>
+            <Text style={styles.author}>Olá, {user?.name}!</Text>
+            <Text style={styles.author}>Perfil: {isTeacher ? 'Professor' : 'Estudante'}</Text>
             <View style={styles.sessionActions}>
               {isTeacher && (
                 <View style={styles.action}>
@@ -82,10 +83,20 @@ export default function HomeScreen({ navigation }) {
             </View>
           </>
         ) : (
-          <Button
-            title="Login professor"
-            onPress={() => navigation.navigate('Login')}
-          />
+          <View style={styles.sessionActions}>
+            <View style={styles.action}>
+              <Button
+                title="Login professor"
+                onPress={() => navigation.navigate('Login', { role: 'teacher' })}
+              />
+            </View>
+            <View style={styles.action}>
+              <Button
+                title="Login estudante"
+                onPress={() => navigation.navigate('Login', { role: 'student' })}
+              />
+            </View>
+          </View>
         )}
       </View>
     <FlatList

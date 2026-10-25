@@ -7,6 +7,13 @@ export async function loginTeacher({ email, password }) {
   });
 }
 
+export async function loginStudent({ email, password }) {
+  return request('/auth/student/login', {
+    method: 'POST',
+    body: { email, password },
+  });
+}
+
 /**
  * @param {string} path
  * @param {{ signal?: AbortSignal, method?: string, token?: string, body?: object }} options
@@ -53,7 +60,7 @@ async function request(path, { signal, method = 'GET', token, body } = {}) {
       const message = timedOut
         ? 'A API demorou para responder.'
         : 'Não foi possível conectar à API.';
-      const guidance = method === 'GET' || path === '/auth/login'
+      const guidance = method === 'GET' || path === '/auth/login' || path === '/auth/student/login'
         ? ' Confira sua conexão e tente novamente.'
         : ' Confira a lista antes de repetir a operação.';
       throw new Error(message + guidance);

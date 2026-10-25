@@ -41,7 +41,7 @@ export default function AppNavigator() {
           <Stack.Screen
             name="Login"
             component={LoginScreen}
-            options={{ title: 'Acesso docente' }}
+            options={{ title: 'Acesso à plataforma' }}
           />
         )}
 

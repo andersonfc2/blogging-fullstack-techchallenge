@@ -13,9 +13,11 @@ export function AuthProvider({ children }) {
   const [authData, setAuthData] = useState(null);
 
   function login(data) {
+    const user = data.teacher || data.student;
     if (
       !data.token ||
-      !data.teacher ||
+      !user ||
+      !['teacher', 'student'].includes(user.role) ||
       !Number.isFinite(data.expiresAt) ||
       data.expiresAt <= Date.now()
     ) {
@@ -24,7 +26,7 @@ export function AuthProvider({ children }) {
 
     setAuthData({
       token: data.token,
-      teacher: data.teacher,
+      user,
       expiresAt: data.expiresAt,
     });
   }
@@ -35,10 +37,10 @@ export function AuthProvider({ children }) {
 
   const updateTeacher = useCallback((teacher) => {
     setAuthData((current) => {
-      if (!current || Number(current.teacher.id) !== Number(teacher.id)) return current;
+      if (!current || current.user.role !== 'teacher' || Number(current.user.id) !== Number(teacher.id)) return current;
       return {
         ...current,
-        teacher: { ...current.teacher, name: teacher.name, email: teacher.email },
+        user: { ...current.user, name: teacher.name, email: teacher.email },
       };
     });
   }, []);
@@ -73,11 +75,14 @@ export function AuthProvider({ children }) {
     <AuthContext.Provider
       value={{
         token: authData?.token,
-        teacher: authData?.teacher,
+        user: authData?.user,
+        teacher: authData?.user.role === 'teacher' ? authData.user : undefined,
+        student: authData?.user.role === 'student' ? authData.user : undefined,
         isAuthenticated: Boolean(authData?.token),
         isTeacher: Boolean(
-          authData?.token && authData?.teacher?.role === 'teacher'
+          authData?.token && authData?.user.role === 'teacher'
         ),
+        isStudent: Boolean(authData?.token && authData?.user.role === 'student'),
         login,
         logout,
         updateTeacher,
