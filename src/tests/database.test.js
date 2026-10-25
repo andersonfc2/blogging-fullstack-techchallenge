@@ -27,5 +27,7 @@ describe('database configuration', () => {
 
         expect(mockQuery).toHaveBeenCalledTimes(1);
         expect(mockQuery.mock.calls[0][0]).toContain('CREATE TABLE IF NOT EXISTS posts');
+        expect(mockQuery.mock.calls[0][0]).toContain('CREATE TABLE IF NOT EXISTS teachers');
+        expect(mockQuery.mock.calls[0][0]).toContain('CREATE TABLE IF NOT EXISTS students');
     });
 });

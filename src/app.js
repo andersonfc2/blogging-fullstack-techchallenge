@@ -5,6 +5,7 @@ const databaseRoutes = require('./routes/databaseRoutes');
 const postRoutes = require('./routes/postRoutes');
 const authRoutes = require('./routes/authRoutes');
 const teacherRoutes = require('./routes/teacherRoutes');
+const studentRoutes = require('./routes/studentRoutes');
 
 const app = express();
 
@@ -22,5 +23,6 @@ app.use(databaseRoutes);
 app.use(authRoutes);
 app.use(postRoutes);
 app.use(teacherRoutes);
+app.use(studentRoutes);
 
 module.exports = app;

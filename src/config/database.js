@@ -28,6 +28,14 @@ async function initDatabase(retries = 5, delay = 2000) {
             "passwordHash" VARCHAR(255) NOT NULL,
             "createdAt" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         );
+
+        CREATE TABLE IF NOT EXISTS students (
+            id SERIAL PRIMARY KEY,
+            name VARCHAR(255) NOT NULL,
+            email VARCHAR(255) UNIQUE NOT NULL,
+            "passwordHash" VARCHAR(255) NOT NULL,
+            "createdAt" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        );
     `;
 
     for (let i = 1; i <= retries; i++) {
@@ -56,7 +64,7 @@ async function initDatabase(retries = 5, delay = 2000) {
                 }
             }
 
-            console.log('Tabela "posts" verificada/criada com sucesso!');
+            console.log('Tabelas "posts", "teachers" e "students" verificadas/criadas com sucesso!');
             return; 
         } catch (error) {
             if (error.code === 'ECONNREFUSED' && i < retries) {
