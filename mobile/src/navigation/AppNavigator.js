@@ -9,6 +9,8 @@ import PostReadScreen from '../screens/PostReadScreen';
 import PostFormScreen from '../screens/PostFormScreen';
 import TeacherListScreen from '../screens/TeacherListScreen';
 import TeacherFormScreen from '../screens/TeacherFormScreen';
+import StudentListScreen from '../screens/StudentListScreen';
+import StudentFormScreen from '../screens/StudentFormScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -47,6 +49,21 @@ export default function AppNavigator() {
 
         {isTeacher && (
           <Stack.Group>
+            <Stack.Screen
+              name="StudentList"
+              component={StudentListScreen}
+              options={{ title: 'Estudantes' }}
+            />
+            <Stack.Screen
+              name="StudentCreate"
+              component={StudentFormScreen}
+              options={{ title: 'Cadastrar estudante' }}
+            />
+            <Stack.Screen
+              name="StudentEdit"
+              component={StudentFormScreen}
+              options={{ title: 'Editar estudante' }}
+            />
             <Stack.Screen
               name="TeacherList"
               component={TeacherListScreen}

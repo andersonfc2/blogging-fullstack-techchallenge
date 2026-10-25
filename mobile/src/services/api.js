@@ -149,3 +149,41 @@ export async function deleteTeacher(id, token) {
   requireToken(token);
   return request(`/teachers/${encodeURIComponent(String(id))}`, { method: 'DELETE', token });
 }
+
+/**
+ * @param {string} token
+ * @param {{ page?: number, limit?: number, signal?: AbortSignal }} options
+ */
+export async function getStudents(token, { page = 1, limit = 5, signal } = {}) {
+  requireToken(token);
+  return request(`/students?page=${encodeURIComponent(String(page))}&limit=${encodeURIComponent(String(limit))}`, {
+    token, signal,
+  });
+}
+
+/**
+ * @param {number | string} id
+ * @param {string} token
+ * @param {{ signal?: AbortSignal }} options
+ */
+export async function getStudentById(id, token, { signal } = {}) {
+  requireToken(token);
+  return request(`/students/${encodeURIComponent(String(id))}`, { token, signal });
+}
+
+export async function createStudent(data, token) {
+  requireToken(token);
+  return request('/students', { method: 'POST', token, body: data });
+}
+
+export async function updateStudent(id, data, token) {
+  requireToken(token);
+  return request(`/students/${encodeURIComponent(String(id))}`, {
+    method: 'PUT', token, body: data,
+  });
+}
+
+export async function deleteStudent(id, token) {
+  requireToken(token);
+  return request(`/students/${encodeURIComponent(String(id))}`, { method: 'DELETE', token });
+}

@@ -98,6 +98,11 @@ export default function AdminScreen({ navigation }) {
           disabled={deletingId !== null}
         />
         <Button
+          title="Gerenciar estudantes"
+          onPress={() => navigation.navigate('StudentList')}
+          disabled={deletingId !== null}
+        />
+        <Button
           title="Criar postagem"
           onPress={() => navigation.navigate('PostCreate')}
           disabled={deletingId !== null}
